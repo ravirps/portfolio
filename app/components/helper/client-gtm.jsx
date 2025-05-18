@@ -1,7 +1,12 @@
 "use client";
 
-import { GoogleTagManager } from "@next/third-parties/google";
 import { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
+
+const GoogleTagManager = dynamic(
+  () => import('@next/third-parties/google').then(mod => mod.GoogleTagManager),
+  { ssr: false }
+);
 
 export default function ClientGTM() {
   const [mounted, setMounted] = useState(false);
@@ -12,5 +17,5 @@ export default function ClientGTM() {
 
   if (!mounted) return null;
   
-  return <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM} />;
+  return process.env.NEXT_PUBLIC_GTM ? <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM} /> : null;
 } 
