@@ -1,10 +1,10 @@
 {
   "name": "developer-portfolio",
-  "description": "Portfolio of Abu Said",
+  "description": "Portfolio of Ravi Pratap Singh",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 8800",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -22,14 +22,14 @@
     "react-google-recaptcha": "^3.1.0",
     "react-icons": "^4.11.0",
     "react-toastify": "^10.0.4",
-    "sharp": "^0.33.5"
+    "sharp": "^0.33.5",
+    "tailwindcss": "^3.3.0"
   },
   "devDependencies": {
     "autoprefixer": "latest",
     "eslint": "latest",
     "eslint-config-next": "15.1.1",
     "postcss": "latest",
-    "sass": "^1.69.5",
-    "tailwindcss": "latest"
+    "sass": "^1.69.5"
   }
 }

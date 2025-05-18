@@ -1,20 +1,14 @@
 export const educations = [
   {
     id: 1,
-    title: "Bachelor Degree",
-    duration: "2020 - Present",
-    institution: "National University of Bangladesh",
+    title: "Bachelor of Technology in Chemical Engineering",
+    duration: "July 2017 - June 2021",
+    institution: "Indian Institute of Technology Varanasi",
   },
   {
     id: 2,
-    title: "Higher Secondary Certificate",
-    duration: "2018 - 2020",
-    institution: "Noakhali Islamia Kamil Madrasah",
-  },
-  {
-    id: 3,
-    title: "Secondary School Certificate",
-    duration: "2008 - 2018",
-    institution: "Baitus Saif Islamia Madrasah",
+    title: "Higher Secondary Education (CBSE)",
+    duration: "June 2014 - March 2016",
+    institution: "SDDT Inter College, Gorakhpur",
   }
 ]
