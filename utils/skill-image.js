@@ -82,7 +82,16 @@ import linux from '../app/assets/svg/skills/linux.svg'
 import sqlalchemy from '../app/assets/svg/skills/sqlalchemy.svg'
 import fastapi from '../app/assets/svg/skills/fastapi.svg'
 
-
+// Import new skills
+import redux from '../app/assets/svg/skills/redux.svg'
+import reactquery from '../app/assets/svg/skills/reactquery.svg'
+import mapbox from '../app/assets/svg/skills/mapbox.svg'
+import aggrid from '../app/assets/svg/skills/ag-grid.svg'
+import cypress from '../app/assets/svg/skills/cypress.svg'
+import eslint from '../app/assets/svg/skills/eslint.svg'
+import webpack from '../app/assets/svg/skills/webpack.svg'
+import cicd from '../app/assets/svg/skills/ci-cd.svg'
+import sql from '../app/assets/svg/skills/sql.svg'
 
 export const skillsImage = (skill) => {
   const skillID = skill.toLowerCase();
@@ -187,6 +196,8 @@ export const skillsImage = (skill) => {
       return lightroom;
     case 'materialui':
       return materialui;
+    case 'material ui':
+      return materialui;
     case 'nginx':
       return nginx;
     case 'numpy':
@@ -251,6 +262,25 @@ export const skillsImage = (skill) => {
       return sqlalchemy;
     case 'fastapi':
       return fastapi;
+    // New skills
+    case 'redux':
+      return redux;
+    case 'react query':
+      return reactquery;
+    case 'mapbox':
+      return mapbox;
+    case 'ag-grid':
+      return aggrid;
+    case 'cypress':
+      return cypress;
+    case 'eslint':
+      return eslint;
+    case 'webpack':
+      return webpack;
+    case 'ci/cd':
+      return cicd;
+    case 'sql':
+      return sql;
     default:
       break;
   }
