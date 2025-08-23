@@ -134,7 +134,7 @@ const AnimatedPhotoGallery = ({ onPhotoHover, onPhotoLeave }) => {
     
     return (
       <div className={`relative ${isFullscreenMode ? 'w-full h-full flex items-center justify-center' : 'bg-gray-100 rounded-xl sm:rounded-2xl overflow-hidden border-2 border-gray-200 hover:border-purple-400 transition-all duration-500 shadow-lg'}`}>
-        <div className={`relative overflow-hidden ${isFullscreenMode ? 'w-full h-full' : 'w-full h-64 sm:h-80'}`}>
+        <div className={`relative overflow-hidden ${isFullscreenMode ? 'w-full h-full' : 'w-full h-80 sm:h-96'}`}>
           {photos.map((photo, index) => (
             <div
               key={index}
