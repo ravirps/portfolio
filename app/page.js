@@ -24,7 +24,7 @@ async function getData() {
 
   const data = await res.json();
 
-  const filtered = data.filter((item) => item?.cover_image).sort(() => Math.random() - 0.5);
+  const filtered = data.filter((item) => item?.cover_image);
 
   return filtered;
 };
@@ -37,7 +37,9 @@ export default function Home() {
     async function fetchData() {
       try {
         const data = await getData();
-        setBlogs(data);
+        // Randomize the order on the client side only
+        const randomizedData = data.sort(() => Math.random() - 0.5);
+        setBlogs(randomizedData);
       } catch (error) {
         console.error("Failed to fetch blogs:", error);
         setBlogs([]);

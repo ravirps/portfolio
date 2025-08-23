@@ -1,3 +1,5 @@
+import React from 'react';
+
 const HobbiesSection = () => {
   return (
     <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg sm:shadow-xl p-4 sm:p-8 mb-6 sm:mb-8">

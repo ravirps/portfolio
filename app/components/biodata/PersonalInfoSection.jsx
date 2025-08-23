@@ -1,3 +1,5 @@
+import React from 'react';
+
 const PersonalInfoSection = () => {
   return (
     <div className="grid grid-cols-1 gap-6 sm:gap-8 mb-6 sm:mb-8">
@@ -48,7 +50,7 @@ const PersonalInfoSection = () => {
           </div>
           <div className="flex items-center justify-between">
             <span className="font-semibold">Profession:</span>
-            <span>Software Engineer</span>
+            <span>Software Engineer (SDE-2)</span>
           </div>
           <div className="flex items-center justify-between">
             <span className="font-semibold">Company:</span>

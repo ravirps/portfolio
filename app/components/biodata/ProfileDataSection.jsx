@@ -16,7 +16,7 @@ const ProfileDataSection = ({ onPhotoHover, onPhotoLeave }) => {
           </div>
           <div className="flex items-center justify-between">
             <span className="font-semibold text-gray-700 text-sm sm:text-base">Age:</span>
-            <span className="text-gray-600 text-sm sm:text-base">25</span>
+            <span className="text-gray-600 text-sm sm:text-base">26</span>
           </div>
           <div className="flex items-center justify-between">
             <span className="font-semibold text-gray-700 text-sm sm:text-base">Height:</span>

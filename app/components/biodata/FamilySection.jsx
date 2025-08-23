@@ -1,3 +1,5 @@
+import React from 'react';
+
 const FamilySection = () => {
   return (
     <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg sm:shadow-xl p-4 sm:p-8 mb-6 sm:mb-8">
@@ -8,19 +10,19 @@ const FamilySection = () => {
         <div className="space-y-3 sm:space-y-4 text-gray-600 text-sm sm:text-base">
           <div className="flex items-center justify-between">
             <span className="font-semibold">Father&apos;s Name:</span>
-            <span>[Father&apos;s Name]</span>
+            <span>Vijay Pal Singh</span>
           </div>
           <div className="flex items-center justify-between">
             <span className="font-semibold">Father&apos;s Occupation:</span>
-            <span>[Occupation]</span>
+            <span>Self-employed in battery retail and agriculture</span>
           </div>
           <div className="flex items-center justify-between">
             <span className="font-semibold">Mother&apos;s Name:</span>
-            <span>[Mother&apos;s Name]</span>
+            <span>Urmila Singh</span>
           </div>
           <div className="flex items-center justify-between">
             <span className="font-semibold">Mother&apos;s Occupation:</span>
-            <span>[Occupation]</span>
+            <span>Government Teacher</span>
           </div>
         </div>
         <div className="space-y-3 sm:space-y-4 text-gray-600 text-sm sm:text-base">

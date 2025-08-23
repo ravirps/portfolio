@@ -7,17 +7,18 @@ const ContactSection = () => {
   };
 
   const handlePhoneClick = () => {
-    window.open('tel:+918601065279', '_blank'); // Replace with actual phone number
+    window.open(`tel:${personalData.phone}`, '_blank');
   };
 
   const handleWhatsAppClick = () => {
     const message = encodeURIComponent("Hi Ravi, I came across your biodata and would like to connect with you.");
-    window.open(`https://wa.me/918601065279?text=${message}`, '_blank'); // Replace with actual WhatsApp number
+    const phoneNumber = personalData.phone.replace(/\s+/g, ''); // Remove spaces from phone number
+    window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
   };
 
   const handleAddressClick = () => {
     // You can replace this with actual address coordinates or Google Maps link
-    window.open('https://maps.google.com/?q=Bangalore,Karnataka', '_blank');
+    window.open(`https://maps.google.com/?q=${encodeURIComponent(personalData.address)}`, '_blank');
   };
 
   return (
@@ -27,82 +28,113 @@ const ContactSection = () => {
       </h3>
       <div className="grid grid-cols-1 gap-6 sm:gap-8">
         <div className="space-y-3 sm:space-y-4 text-gray-600 text-sm sm:text-base">
-          <div className="flex items-center justify-between group">
+          <div className="flex items-center justify-between group p-3 rounded-lg hover:bg-purple-50 transition-all duration-300 border border-transparent hover:border-purple-200">
             <span className="font-semibold flex items-center gap-2">
               <FaEnvelope className="text-purple-500" />
               Email:
             </span>
             <button 
               onClick={handleEmailClick}
-              className="text-blue-600 hover:text-blue-800 hover:underline transition-colors duration-200 cursor-pointer"
+              className="text-blue-600 hover:text-blue-800 hover:underline transition-all duration-300 cursor-pointer px-3 py-1 rounded-md hover:bg-blue-50 hover:shadow-sm font-medium flex items-center gap-2 group/btn hover:scale-105 active:scale-95"
             >
               {personalData.email}
+              <span className="text-xs opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300">📧</span>
             </button>
           </div>
-          <div className="flex items-center justify-between group">
+          <div className="flex items-center justify-between group p-3 rounded-lg hover:bg-green-50 transition-all duration-300 border border-transparent hover:border-green-200">
             <span className="font-semibold flex items-center gap-2">
               <FaPhone className="text-green-500" />
               Phone:
             </span>
             <button 
               onClick={handlePhoneClick}
-              className="text-blue-600 hover:text-blue-800 hover:underline transition-colors duration-200 cursor-pointer"
+              className="text-green-600 hover:text-green-800 hover:underline transition-all duration-300 cursor-pointer px-3 py-1 rounded-md hover:bg-green-50 hover:shadow-sm font-medium flex items-center gap-2 group/btn hover:scale-105 active:scale-95"
             >
-              +91 XXXXXXXXXX
+              {personalData.phone}
+              <span className="text-xs opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300">📞</span>
             </button>
           </div>
-          <div className="flex items-center justify-between group">
+          <div className="flex items-center justify-between group p-3 rounded-lg hover:bg-green-50 transition-all duration-300 border border-transparent hover:border-green-200">
             <span className="font-semibold flex items-center gap-2">
               <FaWhatsapp className="text-green-500" />
               WhatsApp:
             </span>
             <button 
               onClick={handleWhatsAppClick}
-              className="text-green-600 hover:text-green-800 hover:underline transition-colors duration-200 cursor-pointer"
+              className="text-green-600 hover:text-green-800 hover:underline transition-all duration-300 cursor-pointer px-3 py-1 rounded-md hover:bg-green-50 hover:shadow-sm font-medium flex items-center gap-2 group/btn hover:scale-105 active:scale-95"
             >
-              +91 XXXXXXXXXX
+              {personalData.phone}
+              <span className="text-xs opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300">💬</span>
             </button>
           </div>
         </div>
         <div className="space-y-3 sm:space-y-4 text-gray-600 text-sm sm:text-base">
-          <div className="flex items-center justify-between group">
+          <div className="flex items-center justify-between group p-3 rounded-lg hover:bg-red-50 transition-all duration-300 border border-transparent hover:border-red-200">
             <span className="font-semibold flex items-center gap-2">
               <FaMapMarkerAlt className="text-red-500" />
               Address:
             </span>
             <button 
               onClick={handleAddressClick}
-              className="text-blue-600 hover:text-blue-800 hover:underline transition-colors duration-200 cursor-pointer text-right max-w-[200px]"
+              className="text-red-600 hover:text-red-800 hover:underline transition-all duration-300 cursor-pointer px-3 py-1 rounded-md hover:bg-red-50 hover:shadow-sm font-medium flex items-center gap-2 group/btn hover:scale-105 active:scale-95 text-right max-w-[200px]"
             >
-              Bangalore, Karnataka
+              {personalData.address}
+              <span className="text-xs opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300">🗺️</span>
             </button>
           </div>
-          <div className="flex items-center justify-between group">
+          <div className="flex items-center justify-between group p-3 rounded-lg hover:bg-orange-50 transition-all duration-300 border border-transparent hover:border-orange-200">
             <span className="font-semibold flex items-center gap-2">
               <FaClock className="text-orange-500" />
               Preferred Contact:
             </span>
-            <span>WhatsApp</span>
+            <span className="text-orange-600 font-medium">WhatsApp</span>
           </div>
-          <div className="flex items-center justify-between group">
+          <div className="flex items-center justify-between group p-3 rounded-lg hover:bg-orange-50 transition-all duration-300 border border-transparent hover:border-orange-200">
             <span className="font-semibold flex items-center gap-2">
               <FaClock className="text-orange-500" />
               Best Time to Call:
             </span>
-            <span>7 PM - 9 PM</span>
+            <span className="text-orange-600 font-medium">7 PM - 9 PM</span>
           </div>
         </div>
       </div>
       
       {/* Contact Instructions */}
-      <div className="mt-6 p-4 bg-blue-50 rounded-lg border-l-4 border-blue-400">
-        <h4 className="font-semibold text-blue-800 mb-2">💡 How to Contact:</h4>
-        <ul className="text-sm text-blue-700 space-y-1">
-          <li>• <strong>Email:</strong> Click to open your email app</li>
-          <li>• <strong>Phone:</strong> Click to call directly</li>
-          <li>• <strong>WhatsApp:</strong> Click to open WhatsApp with a pre-filled message</li>
-          <li>• <strong>Address:</strong> Click to open Google Maps</li>
-        </ul>
+      <div className="mt-6 p-6 bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl border border-blue-200 shadow-sm">
+        <h4 className="font-bold text-blue-800 mb-3 flex items-center gap-2">
+          <span className="text-xl">💡</span>
+          How to Contact:
+        </h4>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="flex items-center gap-2 p-2 rounded-lg bg-white/50 hover:bg-white/70 transition-colors duration-300">
+            <span className="text-blue-600">📧</span>
+            <div>
+              <strong className="text-blue-800">Email:</strong>
+              <p className="text-sm text-blue-700">Click to open your email app</p>
+            </div>
+          </div>
+          <div className="flex items-center gap-2 p-2 rounded-lg bg-white/50 hover:bg-white/70 transition-colors duration-300">
+            <span className="text-green-600">📞</span>
+            <div>
+              <strong className="text-green-800">Phone:</strong>
+              <p className="text-sm text-green-700">Click to call directly</p>
+            </div>
+          </div>
+          <div className="flex items-center gap-2 p-2 rounded-lg bg-white/50 hover:bg-white/70 transition-colors duration-300">
+            <span className="text-green-600">💬</span>
+            <div>
+              <strong className="text-green-800">WhatsApp:</strong>
+              <p className="text-sm text-green-700">Click to open WhatsApp with a pre-filled message</p>
+            </div>
+          </div>
+          <div className="flex items-center gap-2 p-2 rounded-lg bg-white/50 hover:bg-white/70 transition-colors duration-300">
+            <span className="text-red-600">🗺️</span>
+            <div>
+              <strong className="text-red-800">Address:</strong>
+              <p className="text-sm text-red-700">Click to open Google Maps</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

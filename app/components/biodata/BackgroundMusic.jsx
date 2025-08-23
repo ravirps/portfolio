@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { FaPlay, FaPause, FaVolumeUp, FaVolumeMute, FaMusic } from "react-icons/fa";
 
 export default function BackgroundMusic({ externalControl }) {
+  const [isMounted, setIsMounted] = useState(false);
   const audioRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
@@ -11,6 +12,10 @@ export default function BackgroundMusic({ externalControl }) {
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
   const [isManualControl, setIsManualControl] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   useEffect(() => {
     if (audioRef.current) {
@@ -131,6 +136,10 @@ export default function BackgroundMusic({ externalControl }) {
       setIsManualControl(false);
     }
   };
+
+  if (!isMounted) {
+    return null; // Don't render anything on server
+  }
 
   return (
     <div className="fixed bottom-3 right-3 sm:bottom-6 sm:right-6 z-50">

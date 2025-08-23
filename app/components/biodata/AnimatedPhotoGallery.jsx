@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useMemo } from 'react';
 import Image from 'next/image';
 import { FaChevronLeft, FaChevronRight, FaPlay, FaPause, FaExpand, FaCompress, FaTimes } from 'react-icons/fa';
 
@@ -10,10 +10,10 @@ const AnimatedPhotoGallery = ({ onPhotoHover, onPhotoLeave }) => {
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
-  const [isClient, setIsClient] = useState(false);
+
   const autoPlayRef = useRef(null);
 
-  const photos = [
+  const photos = useMemo(() => [
     {
       src: "/image/biodata/boat-photo.jpg",
       alt: "Ravi in a red paddle boat on a lake",
@@ -32,19 +32,12 @@ const AnimatedPhotoGallery = ({ onPhotoHover, onPhotoLeave }) => {
       title: "Scenic View",
       description: "Taking in the beautiful landscape"
     }
-  ];
-
-  // Set client-side flag
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
+  ], []);
 
   // Debug: Log photo paths
   useEffect(() => {
-    if (isClient) {
-      console.log("Photo paths:", photos.map(p => p.src));
-    }
-  }, [isClient, photos]);
+    console.log("Photo paths:", photos.map(p => p.src));
+  }, [photos]);
 
   // Handle escape key to exit fullscreen
   useEffect(() => {
@@ -146,35 +139,13 @@ const AnimatedPhotoGallery = ({ onPhotoHover, onPhotoLeave }) => {
             }`}
           >
             <div className="w-full h-full bg-gray-200 flex items-center justify-center relative">
-              {/* Try to load actual image, fallback to placeholder */}
-              {isClient && (
-                <Image
-                  src={photo.src}
-                  alt={photo.alt}
-                  fill
-                  className="object-cover"
-                  onError={(e) => {
-                    console.error("Image failed to load:", photo.src);
-                    // Hide image on error and show placeholder
-                    e.target.style.display = 'none';
-                    e.target.nextSibling.style.display = 'flex';
-                  }}
-                  onLoad={(e) => {
-                    console.log("Image loaded successfully:", photo.src);
-                    // Hide placeholder when image loads successfully
-                    e.target.nextSibling.style.display = 'none';
-                  }}
-                />
-              )}
-              {/* Placeholder content - shown by default on server, hidden when images load on client */}
-              <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-purple-100 to-pink-100" style={{ display: isClient ? 'none' : 'flex' }}>
-                <div className="text-center px-4">
-                  <div className="text-3xl sm:text-4xl mb-3 sm:mb-4">📷</div>
-                  <div className="text-base sm:text-lg font-semibold text-gray-700">{photo.title}</div>
-                  <div className="text-xs sm:text-sm text-gray-500 mt-2">{photo.description}</div>
-                  <div className="text-xs text-gray-400 mt-1">Photo {index + 1}</div>
-                </div>
-              </div>
+              <Image
+                src={photo.src}
+                alt={photo.alt}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
             </div>
           </div>
         ))}
