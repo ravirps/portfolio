@@ -35,7 +35,7 @@ const ContactSection = () => {
             </span>
             <button 
               onClick={handleEmailClick}
-              className="text-blue-600 hover:text-blue-800 hover:underline transition-all duration-300 cursor-pointer px-3 py-1 rounded-md hover:bg-blue-50 hover:shadow-sm font-medium flex items-center gap-2 group/btn hover:scale-105 active:scale-95"
+              className="text-blue-600 hover:text-blue-800 hover:underline transition-all duration-300 cursor-pointer py-1 rounded-md hover:bg-blue-50 hover:shadow-sm font-medium flex items-center gap-2 group/btn hover:scale-105 active:scale-95"
             >
               {personalData.email}
               <span className="text-xs opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300">📧</span>
@@ -48,7 +48,7 @@ const ContactSection = () => {
             </span>
             <button 
               onClick={handlePhoneClick}
-              className="text-green-600 hover:text-green-800 hover:underline transition-all duration-300 cursor-pointer px-3 py-1 rounded-md hover:bg-green-50 hover:shadow-sm font-medium flex items-center gap-2 group/btn hover:scale-105 active:scale-95"
+              className="text-green-600 hover:text-green-800 hover:underline transition-all duration-300 cursor-pointer py-1 rounded-md hover:bg-green-50 hover:shadow-sm font-medium flex items-center gap-2 group/btn hover:scale-105 active:scale-95"
             >
               {personalData.phone}
               <span className="text-xs opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300">📞</span>
@@ -61,7 +61,7 @@ const ContactSection = () => {
             </span>
             <button 
               onClick={handleWhatsAppClick}
-              className="text-green-600 hover:text-green-800 hover:underline transition-all duration-300 cursor-pointer px-3 py-1 rounded-md hover:bg-green-50 hover:shadow-sm font-medium flex items-center gap-2 group/btn hover:scale-105 active:scale-95"
+              className="text-green-600 hover:text-green-800 hover:underline transition-all duration-300 cursor-pointer py-1 rounded-md hover:bg-green-50 hover:shadow-sm font-medium flex items-center gap-2 group/btn hover:scale-105 active:scale-95"
             >
               {personalData.phone}
               <span className="text-xs opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300">💬</span>
@@ -76,7 +76,7 @@ const ContactSection = () => {
             </span>
             <button 
               onClick={handleAddressClick}
-              className="text-red-600 hover:text-red-800 hover:underline transition-all duration-300 cursor-pointer px-3 py-1 rounded-md hover:bg-red-50 hover:shadow-sm font-medium flex items-center gap-2 group/btn hover:scale-105 active:scale-95 text-right max-w-[200px]"
+              className="text-red-600 hover:text-red-800 hover:underline transition-all duration-300 cursor-pointer py-1 rounded-md hover:bg-red-50 hover:shadow-sm font-medium flex items-center gap-2 group/btn hover:scale-105 active:scale-95"
             >
               {personalData.address}
               <span className="text-xs opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300">🗺️</span>
@@ -87,14 +87,14 @@ const ContactSection = () => {
               <FaClock className="text-orange-500" />
               Preferred Contact:
             </span>
-            <span className="text-orange-600 font-medium">WhatsApp</span>
+            <span className="text-orange-600 font-medium py-1">WhatsApp</span>
           </div>
           <div className="flex items-center justify-between group p-3 rounded-lg hover:bg-orange-50 transition-all duration-300 border border-transparent hover:border-orange-200">
             <span className="font-semibold flex items-center gap-2">
               <FaClock className="text-orange-500" />
               Best Time to Call:
             </span>
-            <span className="text-orange-600 font-medium">7 PM - 9 PM</span>
+            <span className="text-orange-600 font-medium py-1">7 PM - 9 PM</span>
           </div>
         </div>
       </div>
