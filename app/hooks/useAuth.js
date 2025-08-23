@@ -7,7 +7,7 @@ const STORAGE_KEY = "biodataAuthenticated";
 
 export const useAuth = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [showModal, setShowModal] = useState(true);
+  const [showModal, setShowModal] = useState(false);
   const [isHydrated, setIsHydrated] = useState(false);
   const [error, setError] = useState("");
 
@@ -18,6 +18,8 @@ export const useAuth = () => {
     if (authStatus === "true") {
       setIsAuthenticated(true);
       setShowModal(false);
+    } else {
+      setShowModal(true);
     }
   }, []);
 

@@ -24,13 +24,22 @@ export default function BiodataPage() {
     setAudioControl({ shouldPlay: false, shouldPause: true });
   };
 
-  // Don't render anything until hydration is complete
+  // Show loading state until hydration is complete
   if (!isHydrated) {
-    return null;
+    return (
+      <div className="min-h-screen flex items-center justify-center" style={{ 
+        background: 'linear-gradient(135deg, #fdf2f8 0%, #f3e8ff 50%, #eef2ff 100%)'
+      }}>
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600 mx-auto mb-4"></div>
+          <p className="text-gray-600">Loading...</p>
+        </div>
+      </div>
+    );
   }
 
   // Show password modal if not authenticated
-  if (!isAuthenticated) {
+  if (!isAuthenticated && showModal) {
     return (
       <PasswordModal
         onSubmit={handlePasswordSubmit}
