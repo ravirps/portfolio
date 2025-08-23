@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import { useAuth } from "@/app/hooks/useAuth";
+import PasswordModal from "@/app/components/biodata/PasswordModal";
 import ProfileDataSection from "@/app/components/biodata/ProfileDataSection";
 import PersonalInfoSection from "@/app/components/biodata/PersonalInfoSection";
 import FamilySection from "@/app/components/biodata/FamilySection";
@@ -12,6 +14,7 @@ import BackgroundMusic from "@/app/components/biodata/BackgroundMusic";
 
 export default function BiodataPage() {
   const [audioControl, setAudioControl] = useState({ shouldPlay: false, shouldPause: false });
+  const { isAuthenticated, showModal, isHydrated, error, handlePasswordSubmit, handleLogout, closeModal } = useAuth();
 
   const handlePhotoHover = () => {
     setAudioControl({ shouldPlay: true, shouldPause: false });
@@ -21,9 +24,36 @@ export default function BiodataPage() {
     setAudioControl({ shouldPlay: false, shouldPause: true });
   };
 
+  // Don't render anything until hydration is complete
+  if (!isHydrated) {
+    return null;
+  }
+
+  // Show password modal if not authenticated
+  if (!isAuthenticated) {
+    return (
+      <PasswordModal
+        onSubmit={handlePasswordSubmit}
+        onClose={closeModal}
+        error={error}
+      />
+    );
+  }
+
   return (
     <div className="py-4 sm:py-8">
         <div className="max-w-4xl mx-auto px-3 sm:px-6">
+          {/* Logout Button */}
+          <div className="flex justify-end mb-4">
+            <button
+              onClick={handleLogout}
+              className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg transition-colors duration-200 flex items-center gap-2"
+            >
+              <span>🔒</span>
+              Logout
+            </button>
+          </div>
+
           <div className="text-center mb-6 sm:mb-12">
             <h1 className="text-2xl sm:text-4xl font-bold text-gray-800 mb-2 sm:mb-4">💕 Biodata 💕</h1>
             <p className="text-xl sm:text-xl text-gray-600">Ravi Pratap Singh</p>
