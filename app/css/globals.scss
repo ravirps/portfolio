@@ -37,3 +37,54 @@ body {
   // padding-top: calc(var(--index) * 2.5rem);
   top: calc(var(--index) * 4rem);
 }
+
+/* Custom animations for biodata photos */
+@keyframes photoFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8) rotate(-5deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes photoGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(147, 51, 234, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(147, 51, 234, 0.6);
+  }
+}
+
+@keyframes thumbnailBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.photo-fade-in {
+  animation: photoFadeIn 0.8s ease-out;
+}
+
+.photo-glow {
+  animation: photoGlow 2s ease-in-out infinite;
+}
+
+.thumbnail-bounce {
+  animation: thumbnailBounce 0.6s ease-in-out;
+}
+
+.photo-hover-effect {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.photo-hover-effect:hover {
+  transform: scale(1.05) rotate(2deg);
+  filter: brightness(1.1) contrast(1.1);
+}

@@ -3,6 +3,7 @@
 import { personalData } from "@/utils/data/personal-data";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
+import HydrationSafe from "./components/helper/hydration-safe";
 
 // Dynamically import all components with SSR disabled
 const AboutSection = dynamic(() => import("./components/homepage/about"), { ssr: false });
@@ -48,15 +49,17 @@ export default function Home() {
   }, []);
 
   return (
-    <div suppressHydrationWarning>
-      <HeroSection />
-      <AboutSection />
-      <Experience />
-      <Skills />
-      <Projects />
-      <Education />
-      {!isLoading && <Blog blogs={blogs} />}
-      <ContactSection />
-    </div>
+    <HydrationSafe>
+      <div>
+        <HeroSection />
+        <AboutSection />
+        <Experience />
+        <Skills />
+        <Projects />
+        <Education />
+        {!isLoading && <Blog blogs={blogs} />}
+        <ContactSection />
+      </div>
+    </HydrationSafe>
   )
 };
