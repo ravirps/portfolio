@@ -22,30 +22,7 @@ export default function BiodataPage() {
   };
 
   return (
-    <>
-      <style jsx global>{`
-        /* Override global dark theme for biodata page */
-        body {
-          background: linear-gradient(135deg, #fdf2f8 0%, #f3e8ff 50%, #eef2ff 100%);
-          color: #374151 !important; /* gray-700 */
-          margin: 0;
-          padding: 0;
-        }
-        
-        /* Ensure biodata page has proper light theme */
-        .biodata-page {
-          background: linear-gradient(135deg, #fdf2f8 0%, #f3e8ff 50%, #eef2ff 100%);
-          min-height: 100vh;
-          color: #374151;
-        }
-        
-        /* Override any dark text colors */
-        .biodata-page * {
-          color: inherit;
-        }
-      `}</style>
-      
-      <div className="biodata-page min-h-screen bg-gradient-to-br from-pink-50 via-purple-50 to-indigo-50 py-4 sm:py-8">
+    <div className="py-4 sm:py-8">
         <div className="max-w-4xl mx-auto px-3 sm:px-6">
           <div className="text-center mb-6 sm:mb-12">
             <h1 className="text-2xl sm:text-4xl font-bold text-gray-800 mb-2 sm:mb-4">💕 Biodata 💕</h1>
@@ -108,6 +85,5 @@ export default function BiodataPage() {
         {/* Background Music Player */}
         <BackgroundMusic externalControl={audioControl} />
       </div>
-    </>
   );
 }
