@@ -160,7 +160,7 @@ const ProfileSection = () => {
               <span className="font-semibold">Gotra:</span> Kashyap
             </div>
             <div className="hover:bg-purple-50 p-2 rounded-lg transition-colors duration-300">
-              <span className="font-semibold">Marital Status:</span> Never Married
+              <span className="font-semibold">Marital Status:</span> Unmarried
             </div>
           </div>
         </div>

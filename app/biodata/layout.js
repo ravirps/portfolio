@@ -13,20 +13,15 @@ export const metadata = {
 
 export default function BiodataLayout({ children }) {
   return (
-    <html lang="en">
-      <head>
-        <title>Biodata - Ravi Pratap Singh</title>
-        <meta name="description" content="Marriage biodata of Ravi Pratap Singh - Software Engineer" />
-      </head>
-      <body className={inter.className} style={{ 
-        background: 'linear-gradient(135deg, #fdf2f8 0%, #f3e8ff 50%, #eef2ff 100%)',
-        margin: 0,
-        padding: 0,
-        color: '#374151'
-      }}>
-        <ClientToast />
-        {children}
-      </body>
-    </html>
+    <div className={inter.className} style={{ 
+      background: 'linear-gradient(135deg, #fdf2f8 0%, #f3e8ff 50%, #eef2ff 100%)',
+      margin: 0,
+      padding: 0,
+      color: '#374151',
+      minHeight: '100vh'
+    }}>
+      <ClientToast />
+      {children}
+    </div>
   );
 }

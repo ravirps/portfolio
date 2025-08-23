@@ -36,10 +36,6 @@ const PersonalInfoSection = () => {
             <span>Khajani, Gorakhpur</span>
           </div>
           <div className="flex items-center justify-between">
-            <span className="font-semibold">Blood Group:</span>
-            <span>B+ (Positive)</span>
-          </div>
-          <div className="flex items-center justify-between">
             <span className="font-semibold">Complexion:</span>
             <span>Wheatish</span>
           </div>
@@ -58,6 +54,10 @@ const PersonalInfoSection = () => {
           <div className="flex items-center justify-between">
             <span className="font-semibold">University:</span>
             <span>IIT BHU, Varanasi</span>
+          </div>
+          <div className="flex items-center justify-between">
+            <span className="font-semibold">CGPA:</span>
+            <span>8.2 CGPA</span>
           </div>
           <div className="flex items-center justify-between">
             <span className="font-semibold">Profession:</span>

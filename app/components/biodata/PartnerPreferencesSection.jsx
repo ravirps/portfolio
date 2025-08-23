@@ -40,7 +40,7 @@ const PartnerPreferencesSection = () => {
           </div>
           <div className="flex items-center justify-between">
             <span className="font-semibold">Marital Status:</span>
-            <span>Never Married</span>
+            <span>Unmarried</span>
           </div>
           <div className="flex items-center justify-between">
             <span className="font-semibold">Family Values:</span>

@@ -5,6 +5,7 @@ import ScrollToTop from "./components/helper/scroll-to-top";
 import Navbar from "./components/navbar";
 import ClientGTM from "./components/helper/client-gtm";
 import ClientToast from "./components/helper/client-toast";
+import LayoutWrapper from "./components/helper/layout-wrapper";
 import "./css/card.scss";
 import "./css/globals.scss";
 
@@ -21,12 +22,9 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className} suppressHydrationWarning={true}>
         <ClientToast />
-        <main className="min-h-screen relative mx-auto px-6 sm:px-12 lg:max-w-[70rem] xl:max-w-[76rem] 2xl:max-w-[92rem] text-white">
-          <Navbar />
+        <LayoutWrapper>
           {children}
-          <ScrollToTop />
-        </main>
-        <Footer />
+        </LayoutWrapper>
         <ClientGTM />
       </body>
     </html>

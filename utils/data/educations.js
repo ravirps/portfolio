@@ -4,6 +4,7 @@ export const educations = [
     title: "Bachelor of Technology in Chemical Engineering",
     duration: "July 2017 - June 2021",
     institution: "Indian Institute of Technology Varanasi",
+    cgpa: "8.2 CGPA"
   },
   {
     id: 2,
