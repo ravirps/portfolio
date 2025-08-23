@@ -18,7 +18,7 @@ const PartnerPreferencesSection = () => {
           </div>
           <div className="flex items-center justify-between">
             <span className="font-semibold">Height Preference:</span>
-            <span>5' 5'' / (165 cm +)</span>
+            <span>5&apos; 5&apos;&apos; / (165 cm +)</span>
           </div>
           <div className="flex items-center justify-between">
             <span className="font-semibold">Profession:</span>
