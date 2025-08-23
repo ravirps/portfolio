@@ -7,20 +7,20 @@ const FamilySection = () => {
       <div className="grid grid-cols-1 gap-6 sm:gap-8">
         <div className="space-y-3 sm:space-y-4 text-gray-600 text-sm sm:text-base">
           <div className="flex items-center justify-between">
-            <span className="font-semibold">Father's Name:</span>
-            <span>Vijay Pal Singh</span>
+            <span className="font-semibold">Father&apos;s Name:</span>
+            <span>[Father&apos;s Name]</span>
           </div>
           <div className="flex items-center justify-between">
-            <span className="font-semibold">Father's Occupation:</span>
-            <span>Self-employed in battery retail and agriculture</span>
+            <span className="font-semibold">Father&apos;s Occupation:</span>
+            <span>[Occupation]</span>
           </div>
           <div className="flex items-center justify-between">
-            <span className="font-semibold">Mother's Name:</span>
-            <span>Urmila Singh</span>
+            <span className="font-semibold">Mother&apos;s Name:</span>
+            <span>[Mother&apos;s Name]</span>
           </div>
           <div className="flex items-center justify-between">
-            <span className="font-semibold">Mother's Occupation:</span>
-            <span>Government school teacher</span>
+            <span className="font-semibold">Mother&apos;s Occupation:</span>
+            <span>[Occupation]</span>
           </div>
         </div>
         <div className="space-y-3 sm:space-y-4 text-gray-600 text-sm sm:text-base">

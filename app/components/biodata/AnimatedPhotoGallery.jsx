@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
 import { FaChevronLeft, FaChevronRight, FaPlay, FaPause, FaExpand, FaCompress, FaTimes } from 'react-icons/fa';
 
 const AnimatedPhotoGallery = ({ onPhotoHover, onPhotoLeave }) => {
@@ -43,7 +44,7 @@ const AnimatedPhotoGallery = ({ onPhotoHover, onPhotoLeave }) => {
     if (isClient) {
       console.log("Photo paths:", photos.map(p => p.src));
     }
-  }, [isClient]);
+  }, [isClient, photos]);
 
   // Handle escape key to exit fullscreen
   useEffect(() => {
@@ -147,10 +148,11 @@ const AnimatedPhotoGallery = ({ onPhotoHover, onPhotoLeave }) => {
             <div className="w-full h-full bg-gray-200 flex items-center justify-center relative">
               {/* Try to load actual image, fallback to placeholder */}
               {isClient && (
-                <img
+                <Image
                   src={photo.src}
                   alt={photo.alt}
-                  className="w-full h-full object-cover"
+                  fill
+                  className="object-cover"
                   onError={(e) => {
                     console.error("Image failed to load:", photo.src);
                     // Hide image on error and show placeholder

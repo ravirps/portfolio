@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 const ProfileSection = () => {
   const [selectedPhoto, setSelectedPhoto] = useState(0);
@@ -49,9 +50,11 @@ const ProfileSection = () => {
             {/* Main Photo Display */}
             <div className="transition-all duration-700 ease-out opacity-100 transform translate-y-0">
               <div className="relative group">
-                <img
+                <Image
                   src={photos[selectedPhoto].src}
                   alt={photos[selectedPhoto].alt}
+                  width={192}
+                  height={192}
                   className={`w-48 h-48 rounded-full object-cover border-4 border-purple-200 shadow-lg photo-hover-effect ${
                     isMounted ? 'photo-fade-in photo-glow' : ''
                   }`}
@@ -79,9 +82,11 @@ const ProfileSection = () => {
                       : 'hover:scale-105'
                   }`}
                 >
-                  <img
+                  <Image
                     src={photo.src}
                     alt={photo.alt}
+                    width={64}
+                    height={64}
                     className={`w-16 h-16 rounded-full object-cover border-2 transition-all duration-300 photo-hover-effect ${
                       selectedPhoto === index 
                         ? 'border-purple-400 shadow-lg' 
@@ -143,7 +148,7 @@ const ProfileSection = () => {
               <span className="font-semibold">Age:</span> 28 years
             </div>
             <div className="hover:bg-purple-50 p-2 rounded-lg transition-colors duration-300">
-              <span className="font-semibold">Height:</span> 6' (183 cm)
+              <span className="font-semibold">Height:</span> 6&apos; (183 cm)
             </div>
             <div className="hover:bg-purple-50 p-2 rounded-lg transition-colors duration-300">
               <span className="font-semibold">Religion:</span> Hindu

@@ -17,7 +17,7 @@ export default function BackgroundMusic({ externalControl }) {
       // Set initial volume
       audioRef.current.volume = volume;
     }
-  }, []);
+  }, [volume]);
 
   // Handle external control
   useEffect(() => {

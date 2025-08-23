@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import ProfileDataSection from "@/app/components/biodata/ProfileDataSection";
 import PersonalInfoSection from "@/app/components/biodata/PersonalInfoSection";
 import FamilySection from "@/app/components/biodata/FamilySection";
@@ -39,10 +40,11 @@ export default function BiodataPage() {
             <div className="flex-shrink-0">
               <div className="w-32 h-32 sm:w-48 sm:h-48 rounded-full overflow-hidden border-4 border-purple-200 shadow-lg">
                 {isClient && (
-                  <img
+                  <Image
                     src="/image/biodata/boat-photo.jpg"
                     alt="Ravi Pratap Singh"
-                    className="w-full h-full object-cover"
+                    fill
+                    className="object-cover"
                     onError={(e) => {
                       // Fallback to placeholder if image fails to load
                       e.target.style.display = 'none';
@@ -66,7 +68,7 @@ export default function BiodataPage() {
                 </div>
                 <div className="bg-purple-50 p-3 sm:p-4 rounded-lg hover:bg-purple-100 transition-colors">
                   <span className="text-xs sm:text-sm text-gray-600 block mb-1">Height:</span>
-                  <p className="font-semibold text-gray-800 text-sm sm:text-base">6'0" (183 cm)</p>
+                  <p className="font-semibold text-gray-800 text-sm sm:text-base">6&apos;0&quot; (183 cm)</p>
                 </div>
                 <div className="bg-purple-50 p-3 sm:p-4 rounded-lg hover:bg-purple-100 transition-colors">
                   <span className="text-xs sm:text-sm text-gray-600 block mb-1">Gotra:</span>
