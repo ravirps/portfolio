@@ -11,6 +11,7 @@ import HobbiesSection from "@/app/components/biodata/HobbiesSection";
 import PartnerPreferencesSection from "@/app/components/biodata/PartnerPreferencesSection";
 import ContactSection from "@/app/components/biodata/ContactSection";
 import BackgroundMusic from "@/app/components/biodata/BackgroundMusic";
+import HydrationSafe from "@/app/components/helper/hydration-safe";
 
 export default function BiodataClient() {
   const [audioControl, setAudioControl] = useState({ shouldPlay: false, shouldPause: false });
@@ -27,29 +28,32 @@ export default function BiodataClient() {
   // Show password modal if not authenticated and hydrated
   if (isHydrated && !isAuthenticated && showModal) {
     return (
-      <PasswordModal
-        onSubmit={handlePasswordSubmit}
-        onClose={closeModal}
-        error={error}
-      />
+      <HydrationSafe fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
+        <PasswordModal
+          onSubmit={handlePasswordSubmit}
+          onClose={closeModal}
+          error={error}
+        />
+      </HydrationSafe>
     );
   }
 
   return (
-    <div className="py-4 sm:py-8">
-      <div className="max-w-4xl mx-auto px-3 sm:px-6">
-        {/* Logout Button - Only show if authenticated */}
-        {isHydrated && isAuthenticated && (
-          <div className="flex justify-end mb-4">
-            <button
-              onClick={handleLogout}
-              className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg transition-colors duration-200 flex items-center gap-2"
-            >
-              <span>🔒</span>
-              Logout
-            </button>
-          </div>
-        )}
+    <HydrationSafe fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
+      <div className="py-4 sm:py-8">
+        <div className="max-w-4xl mx-auto px-3 sm:px-6">
+          {/* Logout Button - Only show if authenticated */}
+          {isHydrated && isAuthenticated && (
+            <div className="flex justify-end mb-4">
+              <button
+                onClick={handleLogout}
+                className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg transition-colors duration-200 flex items-center gap-2"
+              >
+                <span>🔒</span>
+                Logout
+              </button>
+            </div>
+          )}
 
 
         
@@ -109,5 +113,6 @@ export default function BiodataClient() {
       {/* Background Music Player */}
       <BackgroundMusic externalControl={audioControl} />
     </div>
+    </HydrationSafe>
   );
 }

@@ -37,9 +37,9 @@ export default function Home() {
     async function fetchData() {
       try {
         const data = await getData();
-        // Randomize the order on the client side only
-        const randomizedData = data.sort(() => Math.random() - 0.5);
-        setBlogs(randomizedData);
+        // Use a deterministic sort to avoid hydration mismatch
+        const sortedData = data.sort((a, b) => a.title.localeCompare(b.title));
+        setBlogs(sortedData);
       } catch (error) {
         console.error("Failed to fetch blogs:", error);
         setBlogs([]);

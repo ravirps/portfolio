@@ -13,14 +13,21 @@ export const useAuth = () => {
 
   // Handle hydration and localStorage check
   useEffect(() => {
+    // Set hydrated first to prevent hydration mismatch
     setIsHydrated(true);
-    const authStatus = localStorage.getItem(STORAGE_KEY);
-    if (authStatus === "true") {
-      setIsAuthenticated(true);
-      setShowModal(false);
-    } else {
-      setShowModal(true);
-    }
+    
+    // Use setTimeout to ensure this runs after hydration
+    const timer = setTimeout(() => {
+      const authStatus = localStorage.getItem(STORAGE_KEY);
+      if (authStatus === "true") {
+        setIsAuthenticated(true);
+        setShowModal(false);
+      } else {
+        setShowModal(true);
+      }
+    }, 0);
+    
+    return () => clearTimeout(timer);
   }, []);
 
   const handlePasswordSubmit = (password) => {
