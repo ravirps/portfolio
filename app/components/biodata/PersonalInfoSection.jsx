@@ -21,7 +21,7 @@ const PersonalInfoSection = () => {
         <div className="space-y-3 sm:space-y-4 text-gray-600 text-sm sm:text-base">
           <div className="flex items-center justify-between">
             <span className="font-semibold">Date of Birth:</span>
-            <span>9th November, 1998</span>
+            <span>15th February, 1999</span>
           </div>
           <div className="flex items-center justify-between">
             <span className="font-semibold">Place of Birth:</span>

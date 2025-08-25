@@ -145,7 +145,7 @@ const ProfileSection = () => {
           <h2 className="text-3xl font-bold text-gray-800 mb-4 animate-pulse">Ravi Pratap Singh</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-600">
             <div className="hover:bg-purple-50 p-2 rounded-lg transition-colors duration-300">
-              <span className="font-semibold">Age:</span> 28 years
+              <span className="font-semibold">Age:</span> 26 years
             </div>
             <div className="hover:bg-purple-50 p-2 rounded-lg transition-colors duration-300">
               <span className="font-semibold">Height:</span> 6&apos; (183 cm)
