@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef, useMemo } from 'react';
 import Image from 'next/image';
-import { FaChevronLeft, FaChevronRight, FaPlay, FaPause, FaExpand, FaCompress, FaTimes } from 'react-icons/fa';
+import { FaChevronLeft, FaChevronRight, FaPlay, FaPause, FaExpand, FaCompress, FaTimes, FaDownload } from 'react-icons/fa';
 
 const AnimatedPhotoGallery = ({ onPhotoHover, onPhotoLeave }) => {
   const [currentPhoto, setCurrentPhoto] = useState(0);
@@ -121,6 +121,34 @@ const AnimatedPhotoGallery = ({ onPhotoHover, onPhotoLeave }) => {
     setIsFullscreen(!isFullscreen);
   };
 
+  const handleDownload = async () => {
+    try {
+      const currentPhotoData = photos[currentPhoto];
+      const response = await fetch(currentPhotoData.src);
+      const blob = await response.blob();
+      
+      // Create a download link
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      
+      // Extract filename from the path
+      const filename = currentPhotoData.src.split('/').pop() || 'photo.jpg';
+      link.download = filename;
+      
+      // Trigger download
+      document.body.appendChild(link);
+      link.click();
+      
+      // Cleanup
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error('Download failed:', error);
+      alert('Download failed. Please try again.');
+    }
+  };
+
   const handlePhotoHover = () => {
     if (onPhotoHover) onPhotoHover();
   };
@@ -207,15 +235,24 @@ const AnimatedPhotoGallery = ({ onPhotoHover, onPhotoLeave }) => {
           {currentPhoto + 1} / {photos.length}
         </div>
 
-        {/* Single Fullscreen Button - Always visible */}
+        {/* Bottom Action Buttons - Always visible */}
         {!isFullscreenMode && (
-          <button
-            onClick={toggleFullscreen}
-            className="absolute bottom-2 sm:bottom-4 right-2 sm:right-4 bg-purple-600 hover:bg-purple-700 text-white p-2 sm:p-3 rounded-full shadow-lg transition-all duration-300 z-20 opacity-100"
-            title="View fullscreen"
-          >
-            <FaExpand size={12} className="sm:w-3.5 sm:h-3.5" />
-          </button>
+          <div className="absolute bottom-2 sm:bottom-4 right-2 sm:right-4 flex gap-2 z-20">
+            <button
+              onClick={handleDownload}
+              className="bg-green-600 hover:bg-green-700 text-white p-2 sm:p-3 rounded-full shadow-lg transition-all duration-300 opacity-100"
+              title="Download photo"
+            >
+              <FaDownload size={12} className="sm:w-3.5 sm:h-3.5" />
+            </button>
+            <button
+              onClick={toggleFullscreen}
+              className="bg-purple-600 hover:bg-purple-700 text-white p-2 sm:p-3 rounded-full shadow-lg transition-all duration-300 opacity-100"
+              title="View fullscreen"
+            >
+              <FaExpand size={12} className="sm:w-3.5 sm:h-3.5" />
+            </button>
+          </div>
         )}
       </div>
     );

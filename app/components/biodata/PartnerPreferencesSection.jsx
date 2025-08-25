@@ -10,7 +10,7 @@ const PartnerPreferencesSection = () => {
         <div className="space-y-3 sm:space-y-4 text-gray-600 text-sm sm:text-base">
           <div className="flex items-center justify-between">
             <span className="font-semibold">Age Range:</span>
-            <span>24-27 years</span>
+            <span>24-28 years</span>
           </div>
           <div className="flex items-center justify-between">
             <span className="font-semibold">Education:</span>
@@ -18,7 +18,7 @@ const PartnerPreferencesSection = () => {
           </div>
           <div className="flex items-center justify-between">
             <span className="font-semibold">Height Preference:</span>
-            <span>5&apos; 5&apos;&apos; / (165 cm +)</span>
+            <span>5&apos; 6&apos;&apos; / (167 cm +)</span>
           </div>
           <div className="flex items-center justify-between">
             <span className="font-semibold">Profession:</span>
